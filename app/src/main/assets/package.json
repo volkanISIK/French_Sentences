@@ -1,0 +1,14 @@
+{
+  "name": "cumleler",
+  "version": "1.0.0",
+  "description": "fransızca cümlelerin anlamlarını tahmin programı",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Volkan Işık",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "nouislider": "^14.1.1"
+  }
+}

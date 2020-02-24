@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello World</title>
+    <script type="text/javascript" src="jquery_compressed.js"></script>
+    <script type="text/javascript" src="kelimeler.js"></script>
+
+    <script>
+     var anajson = {};
+
+     function  toggle(el){
+
+
+       var mcss = $(el).css("transform").split(',')[4];
+       if ( mcss == -770){
+           $(el).css("transform","translateX(0)");
+           $(el).css("width","100%");
+       }else{
+           $(el).css("transform","translateX(-770px)");
+           $(el).css("width","1500px");
+       }
+
+   }
+   function yazdir(val1,val2){
+       $("#ekle").empty();
+       for(val1; val1 < val2; val1++){
+           $('#ekle').append('<p class="fr">' + kelimeler[val1]["fr"] + '</p>');
+           $('#ekle').append('<p onclick="toggle(this)" class="gizli" id = "goster" style="transform: translateX(-770px);width=1500px;cursor:pointer;"' + val1 + '>' + kelimeler[val1]["en"] + '</p>');
+       }
+   }
+
+
+
+    </script>
+    <style>
+     *{
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+         font-size: 25px;
+     }
+     #content{
+         width:100%;
+         overflow: hidden;
+     }
+     #ekle{
+
+         background-color:#0055A4;
+         padding:20px;
+         padding-top: 40px;
+
+     }
+     #silider_wrap{
+         position:fixed;
+         width: 100%;
+         height: 125px;
+         background-color: #FFFFFF;
+         z-index: 22;
+         padding:5px;
+     }
+     #slider-range{
+         height: 50px;
+         margin:4px 7px 4px 10px ;
+
+     }
+     .gizli{
+        color:#EF4135;
+        width: 1000px;
+        font-weight: bolder;
+
+     }
+     .fr{
+        color:#FFFFFF;
+     }
+     #slider-range
+     span{
+        width:.7em;
+        height: 3.5em;
+        background-color: rgb(29, 154, 238);
+        font-size:16px;
+     }
+     #silider_wrap label{
+         font-size:35px;
+     }
+     #silider_wrap *:not(span){
+         font-size:50px;
+     }
+     #aralik{
+        background-color:#EF4135;
+        color:#FFFFFF;
+     }
+ </style>
+</head>
+<body>
+<div id="content">
+    <div style="padding:2px;z-index:999;position:fixed;overflow: hidden;background-color:#EF4135;width:100%; color:#FFFFFF" >
+        <label for="aralik">Select interval:</label>
+
+        <select  id="aralik">
+            <option value="100">1-100</option>
+            <option value="200">101-200</option>
+            <option value="300">201-300</option>
+            <option value="400">301-400</option>
+            <option value="500">401-500</option>
+            <option value="600">501-600</option>
+            <option value="700">601-700</option>
+            <option value="800">701-800</option>
+            <option value="900">801-900</option>
+            <option value="1000">901-1000</option>
+            <option value="1100">1001-1100</option>
+            <option value="1200">1101-1200</option>
+            <option value="1300">1201-1300</option>
+            <option value="1400">1301-1400</option>
+            <option value="1500">1401-1500</option>
+            <option value="1600">1501-1600</option>
+            <option value="1700">1601-1700</option>
+            <option value="1800">1701-1800</option>
+            <option value="1900">1801-1900</option>
+            <option value="2000">1901-2000</option>
+            <option value="2100">2001-2100</option>
+            <option value="2200">2101-2200</option>
+            <option value="2300">2201-2300</option>
+            <option value="2400">2301-2400</option>
+            <option value="2500">2401-2500</option>
+            <option value="2600">2501-2600</option>
+            <option value="2700">2601-2700</option>
+            <option value="2800">2701-2800</option>
+            <option value="2900">2801-2900</option>
+            <option value="3000">2901-3000</option>
+            <option value="3100">3001-3100</option>
+            <option value="3200">3101-3200</option>
+            <option value="3300">3201-3300</option>
+            <option value="3400">3301-3400</option>
+            <option value="3500">3401-3500</option>
+            <option value="3600">3501-3600</option>
+            <option value="3700">3601-3700</option>
+            <option value="3800">3701-3800</option>
+            <option value="3900">3801-3900</option>
+            <option value="4000">3901-4000</option>
+            <option value="4100">4001-4100</option>
+            <option value="4100">4001-4100</option>
+            <option value="4200">4101-4200</option>
+            <option value="4300">4201-4300</option>
+            <option value="4400">4301-4400</option>
+            <option value="4500">4401-4500</option>
+            <option value="4600">4501-4600</option>
+            <option value="4700">4601-4700</option>
+            <option value="4800">4701-4800</option>
+            <option value="4900">4801-4900</option>
+            <option value="4980">4901-4980</option>
+        </select>
+    </div>
+
+    <script>
+            $("#aralik").change(function(){
+
+                var aralikSon = $("#aralik").val().toString();
+                var aralikIlk = 0;
+                if(aralikSon == 4980){
+                    aralikIlk = 4900;
+                }else{
+                    aralikIlk = aralikSon - 100;
+                }
+
+
+
+                yazdir(aralikIlk,aralikSon);
+                window.scrollTo(0, 0);
+            });
+        </script>
+    <div style="clear:both;padding:1px"></div>
+    <a id="bas"></a>
+    <div  id="ekle">
+
+    </div>
+    <a href="#bas" id="tikla"></a>
+</div>
+
+<p id="deneme"></p>
+<script>
+
+        $(document).ready(function(){
+
+            yazdir(0,100);
+
+        });
+    
+    
+    </script>
+
+</body>
+</html>
